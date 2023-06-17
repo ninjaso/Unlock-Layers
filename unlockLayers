@@ -1,0 +1,10 @@
+function unlockLayers(_layers) {
+    for (var i = 0; i < _layers.length; i++) {
+        if (_layers[i].locked) {
+            _layers[i].locked = false;
+        }
+        if (_layers[i].layers.length)
+            unlockLayers(_layers[i].layers);
+    }
+}
+unlockLayers(app.activeDocument.layers);
